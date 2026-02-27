@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Product Details | Safe Row Exim</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="product-details.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="agro-details.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="product-details-page">
+        <!-- Sidebar Column -->
+        <aside class="product-sidebar">
+            <div class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+            </div>
+            <div class="sidebar-content">
+                <img src="images/placeholder.jpg" alt="Product Image" class="product-hero-img" id="productImage">
+
+                <div class="sidebar-info">
+                    <span class="agro-category-label" id="productCategory">PRODUCT: Agro / Spices</span>
+                    <h1 class="product-title" id="productTitle">PRODUCT NAME</h1>
+                    <p class="product-description" id="productDescription"></p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="product-main-content">
+            <div class="content-inner">
+
+                <!--  Key Features -->
+                <section>
+                    <div class="section-header">
+                        <h2> Key Features</h2>
+                        <span>Core Product Attributes</span>
+                    </div>
+
+                    <div class="specs-grid" id="quickSpecs">
+                        <div class="spec-box">
+                            <span class="label">Purity</span>
+                            <span class="value" id="specPurity">-</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="label">Moisture</span>
+                            <span class="value" id="specMoisture">-</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="label">Domestic / Export</span>
+                            <span class="value" id="specDomesticExport">-</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quality & Processing -->
+                <section>
+                    <div class="section-header">
+                        <h2>QUALITY & PROCESSING</h2>
+                        <span>Global Safety Standards</span>
+                    </div>
+                    <div class="safety-grid">
+                        <div class="safety-item">
+                            <div class="safety-icon"><i class="fa-solid fa-gears"></i></div>
+                            <span class="safety-text">Machine Graded</span>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <span class="safety-text" id="specShelfLife">12-24 Months Shelf Life</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Logistics Grid -->
+                <div class="logistics-grid">
+                    <!-- Packaging -->
+                    <section class="logistics-col">
+                        <div class="section-header">
+                            <h2>PACKAGING DETAILS</h2>
+                            <span>Export Standard Containment</span>
+                        </div>
+
+                        <div class="packaging-card">
+                            <div class="pkg-icon-box">
+                                <i class="fa-solid fa-box-open"></i>
+                            </div>
+                            <div class="pkg-content">
+                                <strong id="packagingMain">Inner FSSAI 25kg (Domestic)</strong>
+                                <p id="packagingSub">Standard export quality packaging</p>
+                            </div>
+                        </div>
+
+                        <ul class="details-list">
+                            <li>
+                                <span class="label">Inner Packaging:</span>
+                                <span class="value" id="innerPackaging">100g, 500g</span>
+                            </li>
+                            <li>
+                                <span class="label">Custom Available:</span>
+                                <span class="value">Yes</span>
+                            </li>
+                            <li>
+                                <span class="label">Fumigation & Phyto:</span>
+                                <span class="value" id="specFumigation">Yes</span>
+                            </li>
+                            <li>
+                                <span class="label">Outer Container:</span>
+                                <span class="value" id="outerContainer">PP / Jute Bags</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Shipping -->
+                    <section class="shipping-col">
+                        <div class="section-header">
+                            <h2>SHIPPING & SUPPLY</h2>
+                            <span>Global Distribution Readiness</span>
+                        </div>
+
+                        <div class="shipping-list">
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span class="label">Origin</span>
+                                </div>
+                                <span class="value" id="shipOrigin">-</span>
+                            </div>
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-barcode"></i>
+                                    <span class="label">HS Code</span>
+                                </div>
+                                <span class="value" id="shipHSCode">-</span>
+                            </div>
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-ship"></i>
+                                    <span class="label">Capacity</span>
+                                </div>
+                                <span class="value" id="shipCapacity">100kg / 1 MT</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Compliance -->
+                <section>
+                    <div class="section-header">
+                        <h2>COMPLIANCE & CERTIFICATION</h2>
+                        <span id="complianceSubtitle">International Quality Standards</span>
+                    </div>
+
+                    <div class="tags-container" id="complianceGrid">
+                        <!-- Dynamic Tags -->
+                        <div class="cert-tag">
+                            <div class="cert-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                            <div class="cert-text">ISO Certified</div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="modal-footer-cta">
+                    <a href="contact.html" class="modal-cta">Request A Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="healthcare-product-data.js"></script>
+    <script src="agro-products.js"></script>
+    <script src="agro_spices.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            let fetched = [];
+            try {
+                fetched = await fetchProducts();
+            } catch (e) {
+                console.warn("fetchProducts not available or failed");
+            }
+            const allProducts = [...fetched, ...AGRO_PRODUCTS, ...SPICES];
+
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            const product = allProducts.find((p, index) =>
+                (p.id && String(p.id).toLowerCase() === String(productId).toLowerCase()) ||
+                (String(index) === String(productId))
+            );
+
+            if (product) {
+                document.getElementById('productImage').src = product.image || 'images/placeholder.jpg';
+                document.getElementById('productTitle').textContent = product.title;
+                document.getElementById('productCategory').textContent = 'PRODUCT: ' + (product.category || 'Agro Products');
+                document.getElementById('productDescription').textContent = product.description;
+
+                const isSpice = product.category && product.category.toLowerCase().includes('spice');
+                const isHealth = product.category && product.category.toLowerCase().includes('health');
+
+                // Key Features Grid
+                document.getElementById('specPurity').textContent = product.Purity || product.purity || '99%';
+                document.getElementById('specMoisture').textContent = product.Moisture || product.moisture || '<12%';
+
+                if (isSpice) {
+                    const domBox = document.getElementById('specDomesticExport').closest('.spec-box');
+                    const artHtml = `
+                        <div class="spec-box spice-only">
+                            <span class="label">No Artificial Color</span>
+                            <span class="value">${product['artificial color or preservatives'] || product.artificial || 'No'}</span>
+                        </div>`;
+                    const admHtml = `
+                        <div class="spec-box spice-only">
+                            <span class="label">Admixture</span>
+                            <span class="value">${product.Admixture || product.admixture || '1%'}</span>
+                        </div>`;
+                    domBox.insertAdjacentHTML('beforebegin', artHtml + admHtml);
+                }
+
+                const domestic = product.Domestic || product.domestic || '-';
+                const exportVal = product.Export || product.export || '-';
+                document.getElementById('specDomesticExport').textContent = `${domestic} / ${exportVal}`;
+
+                // Quality section
+                const shelfLife = product['Shelf Life'] || product['Self-Life'] || product.shelf_life || '12 Months';
+                document.getElementById('specShelfLife').textContent = shelfLife + (shelfLife.toLowerCase().includes('shelf life') ? '' : ' Shelf Life');
+
+                // Logistics
+                const pkg = product.Packaging || product.packaging || 'Standard Export Packing';
+                document.getElementById('packagingMain').textContent = pkg;
+                document.getElementById('innerPackaging').textContent = product.packaging_inner || 'Standard Inner';
+                document.getElementById('shipOrigin').textContent = product.Origin || product.origin || 'India';
+                document.getElementById('shipHSCode').textContent = product['HS Code'] || product.hscode || product.shipping_hscode || '-';
+
+                // Fix for shipPort which might be missing in some products
+                const portEl = document.getElementById('shipPort');
+                if (portEl) {
+                    portEl.textContent = product.Port || product.shipping_port || 'Mundra / Nhava Sheva';
+                }
+
+                document.getElementById('shipCapacity').textContent = product.Capacity || product.shipping_capacity || 'High Volume (Export Grade)';
+                document.getElementById('specFumigation').textContent = product['Fumigation & Phytosanitary available'] || 'Available';
+
+                // Dynamic Compliance
+                const complianceGrid = document.getElementById('complianceGrid');
+                if (complianceGrid) {
+                    complianceGrid.innerHTML = '';
+
+                    let certsList = [];
+                    if (isHealth) {
+                        document.getElementById('complianceSubtitle').textContent = 'Meets International Medical Standards';
+                        certsList = ["CE Certified", "ISO 13485", "ISO 9001", "Biocompatibility Test", "Sterilization Cert.", "MSDS Available"];
+                    } else {
+                        document.getElementById('complianceSubtitle').textContent = 'International Quality Standards';
+                        const certsStr = product.certifications || (isSpice ? "FSSAI, Spices Board, ISO 9001" : "ISO 9001, FSSAI");
+                        certsList = certsStr.split(',').map(c => c.trim()).filter(c => c !== "");
+                    }
+
+                    certsList.forEach(certName => {
+                        const div = document.createElement('div');
+                        div.className = 'cert-tag';
+                        div.innerHTML = `
+                            <div class="cert-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                            <div class="cert-text">${certName}</div>
+                        `;
+                        complianceGrid.appendChild(div);
+                    });
+                }
+
+                document.title = product.title + " | Safe Row Exim";
+            }
+        });
+    </script>
+</body>
+
+</html>

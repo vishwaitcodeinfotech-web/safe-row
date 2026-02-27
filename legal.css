@@ -1,0 +1,135 @@
+/* --- LEGAL PAGES STYLES (Privacy Policy & Terms) --- */
+.legal-page-section {
+    padding: 65px 55px 65px;
+    /* Increased top padding to clear fixed header */
+    background-color: #fdfdfd;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.legal-container {
+    max-width: 950px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 80px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+}
+
+.legal-header {
+    margin-bottom: 50px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 25px;
+}
+
+.legal-header h1 {
+    font-size: 42px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.legal-header p {
+    color: #888;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legal-body {
+    line-height: 1.9;
+    color: #444;
+}
+
+.legal-body h2 {
+    font-size: 22px;
+    color: #000;
+    margin: 45px 0 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.legal-body p {
+    margin-bottom: 24px;
+    font-size: 17px;
+}
+
+.legal-body ul {
+    margin-bottom: 30px;
+    padding-left: 25px;
+    list-style-type: square;
+}
+
+.legal-body ul li {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.legal-body ul.no-bullets {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.legal-body a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.legal-body a:hover {
+    color: #444;
+}
+
+.legal-body em {
+    color: #666;
+    font-size: 15px;
+}
+
+.contact-card-simple {
+    background: #f9f9f9;
+    padding: 25px;
+    border-left: 4px solid #000;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.legal-closure {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed #ddd;
+    color: #666;
+    font-size: 15px;
+}
+
+.thank-you {
+    font-weight: 700;
+    color: #000;
+    margin-top: 15px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 991px) {
+    .legal-container {
+        margin: 0 20px;
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .legal-page-section {
+        padding: 120px 15px 60px;
+    }
+
+    .legal-container {
+        padding: 40px 25px;
+    }
+
+    .legal-header h1 {
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Safe Row Exim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="footer.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+
+    <section class="products-portfolio section-padding">
+        <div class="container">
+            <span class="section-label-small">OUR PRODUCTS</span>
+            <h2 class="section-title-large">OUR DIVERSE PRODUCT <br>PORTFOLIO</h2>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="productSearch" onkeyup="searchProducts()" placeholder="Search product name...">
+            </div>
+        </div>
+
+        <!-- Dynamic Product Grid -->
+        <div id="product-grid" class="product-grid">
+            <!-- Products will be loaded here from Google Sheet -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 45px; color: #BB0D0F;"></i>
+                <p style="margin-top: 10px; color: #666;">Loading products...</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-img">
+                <img src="images/contact-us.webp" alt="Safe Row Logistics">
+            </div>
+            <div class="contact-form-wrapper">
+                <span class="section-label-small">CONTACT US</span>
+                <h2 class="section-title-large">REACH OUT TO US TODAY!</h2>
+                <form class="product-contact-form" onsubmit="sendMail(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name*</label>
+                            <input type="text" name="from_name" placeholder="Enter Your Name" class="input-name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Country Name*</label>
+                            <input type="text" name="country_name" placeholder="Enter Country Name"
+                                class="input-country" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Address*</label>
+                            <input type="email" name="from_email" placeholder="Email Address" class="input-email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number*</label>
+                            <input type="text" name="mobile_number" placeholder="Phone Number" class="input-mobile"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <input type="text" name="message" placeholder="Tell us which products you are interested in..."
+                            class="input-message">
+                    </div>
+                    <button type="submit" class="submit-btn">Request A Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="healthcare-product-data.js"></script>
+    <script src="healthcare_product-data.js"></script>
+    <script src="agro-products.js"></script>
+    <script src="agro_spices.js"></script>
+    <script>
+        let allProducts = [];
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const fetched = await fetchProducts();
+            // Merge fallback/fetched products with agro products and the new spices
+            // Note: HEALTHCARE_PRODUCTS is already included in 'fetched' as a fallback
+            allProducts = [...fetched, ...AGRO_PRODUCTS, ...SPICES];
+
+            if (allProducts.length === 0) {
+                document.getElementById('product-grid').innerHTML =
+                    '<div style="grid-column: 1/-1; text-align: center;">No products found or check Sheet permissions.</div>';
+                return;
+            }
+
+            renderProductGrid(allProducts);
+
+            // Initialize filter from URL param or default to 'all'
+            const params = new URLSearchParams(window.location.search);
+            const category = params.get('category') || 'all';
+            filterSelection(category);
+        });
+
+        function filterSelection(category) {
+            const btns = document.getElementsByClassName("filter-btn");
+
+            // Determine active button logic
+            for (let btn of btns) {
+                btn.classList.remove("active");
+
+                const btnText = btn.textContent.toUpperCase();
+
+                // Normal matching
+                if (btnText.includes(category.toUpperCase()) || (category === 'all' && btnText.includes('ALL'))) {
+                    btn.classList.add("active");
+                }
+                // Special case: If category is sub-agro, make Agro button active
+                else if ((category === 'pulses' || category === 'spices') && btnText.includes('AGRO')) {
+                    btn.classList.add("active");
+                }
+            }
+
+            if (category === 'all') {
+                renderProductGrid(allProducts);
+            } else if (category === 'pulses') {
+                const filtered = allProducts.filter(p =>
+                    (p.category || '').toLowerCase().includes('pulses')
+                );
+                renderProductGrid(filtered);
+            } else if (category === 'spices') {
+                const filtered = allProducts.filter(p =>
+                    (p.category || '').toLowerCase().includes('spices')
+                );
+                renderProductGrid(filtered);
+            } else if (category === 'agro') {
+                // Show all agro products (both pulses and other)
+                const filtered = allProducts.filter(p =>
+                    (p.category || '').toLowerCase().includes('agro')
+                );
+                renderProductGrid(filtered);
+            } else if (category === 'other') {
+                // Explicitly filter for 'Agro / Other'
+                const filtered = allProducts.filter(p =>
+                    (p.category || '').toLowerCase().includes('other')
+                );
+                renderProductGrid(filtered);
+            } else {
+                const filtered = allProducts.filter(p =>
+                    (p.category || '').toLowerCase().includes(category.toLowerCase()) ||
+                    (p.title || '').toLowerCase().includes(category.toLowerCase())
+                );
+                renderProductGrid(filtered);
+            }
+        }
+
+        function searchProducts() {
+            const input = document.getElementById("productSearch");
+            const filter = input.value.toUpperCase();
+
+            const filtered = allProducts.filter(p =>
+                (p.title || '').toUpperCase().includes(filter)
+            );
+            renderProductGrid(filtered);
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body">
+                <!-- Sidebar -->
+                <aside class="modal-sidebar">
+                    <img id="modalImage" src="images/placeholder.webp" alt="Product Image" class="modal-hero-img">
+                    <div class="modal-sidebar-info">
+                        <span id="modalCategory" class="category-tag">Category</span>
+                        <h2 id="modalTitle">Product Title</h2>
+                    </div>
+                </aside>
+
+                <!-- Scrollable Content -->
+                <div class="modal-main-content">
+                    <div class="modal-scroll-inner">
+                        <div class="modal-full-desc" id="modalDescription"></div>
+
+                        <!-- Quick Specs Section -->
+                        <section class="modal-section" id="modalSpecsSection">
+                            <div class="m-section-header">
+                                <h3>QUICK SPECS</h3>
+                                <span>Core Product Attributes</span>
+                            </div>
+                            <div id="modalSpecsGrid" class="specs-grid">
+                                <!-- Dynamic Specs -->
+                            </div>
+                        </section>
+
+                        <!-- Variants Table Section -->
+                        <section class="modal-section" id="modalVariantsSection" style="display: none;">
+                            <div class="m-section-header">
+                                <h3>VARIANTS & SIZES</h3>
+                                <span>Available Specifications</span>
+                            </div>
+                            <div class="table-wrapper">
+                                <table class="variants-table">
+                                    <thead id="modalVariantsHead"></thead>
+                                    <tbody id="modalVariantsBody"></tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- Logistics: Packaging & Shipping -->
+                        <div class="modal-logistics-grid">
+                            <!-- Packaging -->
+                            <section class="modal-section">
+                                <div class="m-section-header">
+                                    <h3>PACKAGING</h3>
+                                    <span>Export Standard Containment</span>
+                                </div>
+                                <div class="pkg-card">
+                                    <div class="pkg-icon"><i class="fa-solid fa-box"></i></div>
+                                    <div class="pkg-text">
+                                        <div id="modalPkgMain" class="pkg-main">-</div>
+                                        <div id="modalPkgSub" class="pkg-sub">Inner Packaging</div>
+                                    </div>
+                                </div>
+                                <div id="modalPkgDetails" class="pkg-details-list">
+                                    <!-- Dynamic rows -->
+                                </div>
+                            </section>
+
+                            <!-- Shipping -->
+                            <section class="modal-section">
+                                <div class="m-section-header">
+                                    <h3>SHIPPING & SUPPLY</h3>
+                                    <span>Global Distribution readiness</span>
+                                </div>
+                                <div id="modalShippingList" class="ship-list">
+                                    <!-- Dynamic items -->
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- Compliance Section -->
+                        <section class="modal-section">
+                            <div class="m-section-header">
+                                <h3>COMPLIANCE & CERTIFICATION</h3>
+                                <span>International Quality Standards</span>
+                            </div>
+                            <div id="modalComplianceGrid" class="compliance-tags">
+                                <!-- Dynamic Tags -->
+                            </div>
+                        </section>
+
+                        <div class="modal-footer-cta">
+                            <a href="contact.html" class="modal-cta">Request A Quote</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

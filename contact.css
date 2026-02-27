@@ -1,0 +1,171 @@
+/* --- Contact Page Styles --- */
+
+.contact-page-section {
+    display: flex;
+    align-items: stretch;
+    min-height: 600px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.contact-image-side {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 600px;
+}
+
+.contact-form-side {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-label-small {
+    color: #EE1113;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.contact-title-large {
+    font-size: 42px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 40px;
+    margin-bottom: 60px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.form-group input {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #000;
+    outline: none;
+    transition: all 0.2s;
+    font-family: 'Bai Jamjuree';
+}
+
+.form-group input::placeholder {
+    color: #828282;
+    font-size: 15px;
+}
+
+.form-group input:focus {
+    border-bottom-color: #000;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.submit-btn-black {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 18px 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Gap from bottom to prevent joining footer */
+    transition: all 0.3s ease;
+}
+
+.submit-btn-black:hover {
+    background-color: #EE1113;
+}
+
+@media (max-width: 1100px) {
+    .contact-form-side {
+        padding: 80px 5% !important;
+    }
+
+    .contact-title-large {
+        font-size: 36px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .contact-form-grid {
+        gap: 30px 25px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .submit-btn-black {
+        margin-bottom: 40px;
+        /* Extra breathing room on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Contact Layout & Form */
+    .contact-page-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .contact-image-side {
+        width: 100%;
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .contact-form-side {
+        padding: 50px 20px;
+    }
+
+    .contact-label-small {
+        text-align: center;
+    }
+
+    .contact-title-large {
+        font-size: 32px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}

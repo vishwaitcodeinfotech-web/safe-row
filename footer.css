@@ -1,0 +1,327 @@
+.app-footer {
+    background-color: #000000;
+    color: white;
+    overflow: hidden;
+}
+
+.footer-bg-svg-wrapper {
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1400px;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0.1;
+}
+
+.footer-bg-svg-wrapper svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-bg-svg-wrapper text {
+    fill: #ffffff;
+    font-family: 'Bai Jamjuree';
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: clamp(120px, 18vw, 300px);
+    backface-visibility: hidden;
+}
+
+.app-footer .container {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0px 5% 60px;
+    z-index: 2;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.8fr 0.8fr 1.5fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand-col .footer-logo {
+    margin-bottom: 25px;
+}
+
+.footer-logo img {
+    height: 55px;
+    width: auto;
+}
+
+.footer-brand-col p {
+    color: #aeaeae;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 320px;
+}
+
+.social-links-square {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links-square a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #CCCCCC;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.social-links-square a:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+.footer-links-col h3,
+.footer-contact-col h3,
+.footer-cta-col h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.footer-links-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links-col ul li,
+.footer-contact-col ul li {
+    margin-bottom: 15px;
+}
+
+.footer-links-col ul li a {
+    color: #aeaeae;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links-col ul li a:hover {
+    color: white;
+}
+
+.footer-contact-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact-col ul li {
+    color: #aeaeae;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.whatsapp-btn {
+    width: 100%;
+    min-width: 180px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #FFFFFF;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn i {
+    color: #25D366;
+    font-size: 20px;
+}
+
+.footer-bottom-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    font-size: 13px;
+    color: #666;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-legal a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+    color: #aeaeae;
+}
+
+/* --- Responsive Footer Overhaul --- */
+@media (max-width: 1440px) {
+    .footer-bg-svg-wrapper {
+        top: 30px;
+        opacity: 0.2;
+    }
+
+    .footer-bg-svg-wrapper text {
+        font-size: clamp(250px, 21vw, 350px);
+        color: #ffffff;
+    }
+
+
+    .app-footer {
+        padding-top: 15px;
+    }
+
+    .social-links-square a:hover {
+        background-color: white;
+        color: black;
+        border-color: white;
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 50px 30px;
+    }
+
+    .footer-bg-svg-wrapper text {
+        font-size: clamp(280px, 30vw, 380px);
+        color: #ffffff;
+    }
+
+    .footer-bg-svg-wrapper {
+        top: 30px;
+        opacity: 0.2;
+    }
+
+
+    .app-footer {
+        padding-top: 10px;
+    }
+
+    .social-links-square a:hover {
+        background-color: white;
+        color: black;
+        border-color: white;
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-bg-svg-wrapper text {
+        font-size: clamp(310px, 40vw, 450px);
+        color: #ffffff;
+    }
+
+    .footer-bg-svg-wrapper {
+        top: 30px;
+        opacity: 0.2;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-brand-col,
+    .footer-links-col,
+    .footer-contact-col,
+    .footer-cta-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-brand-col p {
+        max-width: 100%;
+    }
+
+    .social-links-square {
+        justify-content: center;
+    }
+
+    .social-links-square a:hover {
+        background-color: white;
+        color: black;
+        border-color: white;
+        transform: translateY(-3px);
+    }
+
+    .footer-bottom-line {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .whatsapp-btn {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-footer .container {
+        padding: 20px 5% 40px;
+    }
+
+    .app-footer {
+        padding-top: 10px;
+    }
+
+    .footer-bg-svg-wrapper {
+        top: 25px;
+        opacity: 0.2;
+    }
+
+    .footer-bg-svg-wrapper text {
+        font-size: clamp(300px, 45vw, 300px);
+    }
+
+    .footer-brand-col p {
+        font-size: 14px;
+    }
+
+    .footer-links-col h3,
+    .footer-contact-col h3,
+    .footer-cta-col h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+        height: 45px;
+    }
+
+    .social-links-square a:hover {
+        background-color: white;
+        color: black;
+        border-color: white;
+        transform: translateY(-3px);
+    }
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IV Cannula – Details | Safe Row Exim</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="product-details.css">
+    <link rel="stylesheet" href="footer.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="product-details-page">
+        <!-- Sidebar Column -->
+        <aside class="product-sidebar">
+            <div class="back-btn" onclick="window.history.back()">
+                <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+            </div>
+            <div class="sidebar-content">
+                <img src="images/Product.png" alt="Product Image" class="product-hero-img">
+
+                <div class="sidebar-info">
+                    <div class="tagline product-badges">PREMIUM • CERTIFIED • RELIABLE</div>
+                    <h1 class="product-title">PRODUCT NAME</h1>
+                    <p class="product-description"></p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="product-main-content">
+            <div class="content-inner">
+
+                <!-- Quick Specs -->
+                <section>
+                    <div class="section-header">
+                        <h2>QUICK SPECS</h2>
+                        <span>Core Product Attributes</span>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item">
+                            <span class="label spec-label">Material</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="label spec-label">Sizes</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="label spec-label">Variants</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="label spec-label">Color/Transparency</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="label spec-label">Sterilization</span>
+                            <span class="value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="label spec-label">Application/Usage</span>
+                            <span class="value">-</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sterilization & Safety -->
+                <section class="safety-section">
+                    <div class="section-header">
+                        <h2>STERILIZATION & SAFETY</h2>
+                        <span>Clinical Integrity Protocols</span>
+                    </div>
+                    <div class="safety-grid" id="safety-grid">
+                        <div class="safety-item">
+                            <div class="safety-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <span class="safety-text">Gamma Sterilized</span>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon"><i class="fa-solid fa-ban"></i></div>
+                            <span class="safety-text">Latex-Free</span>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon"><i class="fa-solid fa-droplet"></i></div>
+                            <span class="safety-text">DEHP-Free / Non-Toxic</span>
+                        </div>
+                        <div class="safety-item">
+                            <div class="safety-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <span class="safety-text">5 Years Shelf Life</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Logistics Grid -->
+                <div class="logistics-grid">
+                    <!-- Packaging -->
+                    <section class="logistics-col">
+                        <div class="section-header">
+                            <h2>PACKAGING DETAILS</h2>
+                            <span>Export Standard Containment</span>
+                        </div>
+
+                        <div class="packaging-inner">
+                            <div class="pkg-icon-box">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <div class="pkg-content">
+                                <strong>Inner Packaging</strong>
+                                <p>-</p>
+                            </div>
+                        </div>
+
+                        <span class="details-subtitle">Inner Box Details</span>
+                        <div class="data-row">
+                            <span class="data-label">Pack Qty (pcs/box):</span>
+                            <span class="data-value">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Sterile Pack:</span>
+                            <span class="data-value">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Box Per Carton:</span>
+                            <span class="data-value">-</span>
+                        </div>
+
+                        <span class="details-subtitle" style="margin-top: 30px;">Outer Carton Details</span>
+                        <div class="data-row">
+                            <span class="data-label">Unit Count:</span>
+                            <span class="data-value">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Carton Dimensions:</span>
+                            <span class="data-value">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Gross Weight:</span>
+                            <span class="data-value">-</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Volume:</span>
+                            <span class="data-value">-</span>
+                        </div>
+                    </section>
+
+                    <!-- Shipping -->
+                    <section class="shipping-col">
+                        <div class="section-header">
+                            <h2>SHIPPING & SUPPLY</h2>
+                            <span>Global Distribution Readiness</span>
+                        </div>
+
+                        <div class="shipping-list">
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-barcode"></i>
+                                    <span class="label">HS Code</span>
+                                </div>
+                                <span class="value">-</span>
+                            </div>
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span class="label">Lead Time</span>
+                                </div>
+                                <span class="value">-</span>
+                            </div>
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-anchor"></i>
+                                    <span class="label">Port</span>
+                                </div>
+                                <span class="value">-</span>
+                            </div>
+                            <div class="ship-item">
+                                <div class="ship-left">
+                                    <i class="fa-solid fa-industry"></i>
+                                    <span class="label">Capacity</span>
+                                </div>
+                                <span class="value">-</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Compliance -->
+                <section>
+                    <div class="section-header">
+                        <h2>COMPLIANCE & CERTIFICATION</h2>
+                        <span>Meets International Medical Standards</span>
+                    </div>
+
+                    <div class="tags-container">
+                        <!-- Dynamic Tags -->
+                    </div>
+                </section>
+
+                <div class="modal-footer-cta">
+                    <a href="contact.html" class="modal-cta">Request A Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="healthcare-product-data.js"></script>
+    <script src="healthcare_product-data.js"></script>
+    <script src="agro-products.js"></script>
+    <script src="agro_spices.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const fetched = await fetchProducts();
+            // Merge all product sources
+            const allProducts = [...fetched, ...HEALTHCARE_PRODUCTS, ...AGRO_PRODUCTS, ...SPICES];
+
+            if (allProducts && allProducts.length > 0) {
+                renderProductDetails(allProducts);
+            }
+        });
+    </script>
+</body>
+
+</html>
