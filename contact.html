@@ -37,32 +37,33 @@
             <span class="contact-label-small">CONTACT US</span>
             <h1 class="contact-title-large">REACH OUT TO US TODAY!</h1>
 
-            <form onsubmit="sendMail(event)">
+            <form action="https://formspree.io/f/xojnbabq" method="POST">
                 <div class="contact-form-grid">
                     <div class="form-group">
                         <label>Name*</label>
-                        <input type="text" name="from_name" placeholder="Enter Your Name" class="input-name" required>
+                        <input type="text" name="name" placeholder="Enter Your Name" class="input-name" required>
                     </div>
                     <div class="form-group">
                         <label>Country Name*</label>
-                        <input type="text" name="country_name" placeholder="Enter Country Name" class="input-country"
+                        <input type="text" name="country" placeholder="Enter Country Name" class="input-country"
                             required>
                     </div>
                     <div class="form-group">
                         <label>Email Address*</label>
-                        <input type="email" name="from_email" placeholder="Enter Email Address" class="input-email"
-                            required>
+                        <input type="email" name="email" placeholder="Enter Email Address" class="input-email" required>
                     </div>
                     <div class="form-group">
                         <label>Mobile Number*</label>
-                        <input type="tel" name="mobile_number" placeholder="Enter Mobile Number" class="input-mobile"
-                            required>
+                        <input type="tel" name="phone" placeholder="Enter Mobile Number" class="input-mobile" required>
                     </div>
                     <div class="form-group full-width">
                         <label>Message</label>
-                        <input type="text" name="message" placeholder="Tell us which products you are interested in..."
-                            class="input-message">
+                        <textarea name="message" placeholder="Tell us which products you are interested in..."
+                            class="input-message"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd;"></textarea>
                     </div>
+
+                    <input type="hidden" name="_subject" value="New Website Lead - Saferow Exim">
                 </div>
                 <button type="submit" class="submit-btn-black">Request A Quote</button>
             </form>
