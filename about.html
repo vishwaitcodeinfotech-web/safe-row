@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="contact.css">
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -202,7 +203,7 @@
                     <div class="process-card-content">
                         <span class="step-num">Step 2</span>
                         <h3>Documents Shared</h3>
-                        <p>You receive our Proforma Invoice for your review and approval.</p>
+                        <p>You receive our Proforma Invoice and Full Corporate Offer (FCO) for your review.</p>
                     </div>
                 </div>
 
@@ -211,7 +212,8 @@
                     <div class="process-card-content">
                         <span class="step-num">Step 3</span>
                         <h3>Free Sample Sent</h3>
-                        <p>We send product samples for your final quality check and approval.</p>
+                        <p>After documentation, we ship a free sample to you (courier costs are covered by the buyer).
+                        </p>
                     </div>
                 </div>
 
@@ -219,8 +221,8 @@
                     <div class="step-icon"><i class="fas fa-industry"></i></div>
                     <div class="process-card-content">
                         <span class="step-num">Step 4</span>
-                        <h3>Production & Branding</h3>
-                        <p>We begin manufacturing and packaging your products professionally.</p>
+                        <h3>Buyer Confirms & Pays Advance</h3>
+                        <p>Sign the FCO, place your order, and pay the advance to initiate the production process.</p>
                     </div>
                 </div>
 
@@ -228,8 +230,8 @@
                     <div class="step-icon"><i class="fas fa-check-circle"></i></div>
                     <div class="process-card-content">
                         <span class="step-num">Step 5</span>
-                        <h3>Final Approval</h3>
-                        <p>Images and videos of finished goods are sent for your final clearance.</p>
+                        <h3>Production & Branding</h3>
+                        <p>We begin packaging and labeling, including your custom company branding if needed.</p>
                     </div>
                 </div>
 
@@ -237,8 +239,8 @@
                     <div class="step-icon"><i class="fas fa-ship"></i></div>
                     <div class="process-card-content">
                         <span class="step-num">Step 6</span>
-                        <h3>Shipping Arranged</h3>
-                        <p>We hand over the goods and organize the fastest shipping route.</p>
+                        <h3>Final Approval & Payment</h3>
+                        <p>Review photos or videos of the final goods and complete the remaining payment.</p>
                     </div>
                 </div>
 
@@ -246,8 +248,8 @@
                     <div class="step-icon"><i class="fas fa-credit-card"></i></div>
                     <div class="process-card-content">
                         <span class="step-num">Step 7</span>
-                        <h3>Final Payment</h3>
-                        <p>Balance payment is settled as per the agreed terms and conditions.</p>
+                        <h3>Shipping Arranged</h3>
+                        <p>We load and ship the goods, and you receive all the required shipping documents.</p>
                     </div>
                 </div>
 
@@ -255,8 +257,9 @@
                     <div class="step-icon"><i class="fas fa-truck-loading"></i></div>
                     <div class="process-card-content">
                         <span class="step-num">Step 8</span>
-                        <h3>Order Delivery</h3>
-                        <p>Documents are handed over and the shipment reaches your destination.</p>
+                        <h3>Delivery & Quality Check</h3>
+                        <p>You receive and inspect the goods upon delivery. If anything is amiss, we will fix it fast.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -340,42 +343,96 @@
                 <h2 class="section-title-large">COMPLIANCE YOU <br>CAN COUNT ON</h2>
             </div>
 
-            <div class="certificates-grid">
-                <a href="images/IEC.pdf" class="certificate-card" target="_blank">
-                    <div class="cert-icon-wrapper">
-                        <div class="cert-icon-box">
-                            <i class="fa-regular fa-file-lines"></i>
-                        </div>
-                    </div>
-                    <div class="cert-footer">
-                        <span class="cert-name">IEC</span>
-                        <span class="cert-view-link">View <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-                    </div>
-                </a>
+            <div class="certificates-showcase-wrapper">
+                <button class="scroll-btn prev-btn" id="prevCert"><i class="fas fa-chevron-left"></i></button>
 
-                <a href="images/Safe Row Exim - MSME.pdf" class="certificate-card" target="_blank">
-                    <div class="cert-icon-wrapper">
-                        <div class="cert-icon-box">
-                            <i class="fa-regular fa-file-lines"></i>
+                <div class="certificates-scroll-container" id="certScroll">
+                    <!-- MSME -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/msme-logo.png" alt="MSME Logo">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">MSME</span>
+                            <a href="images/Safe Row Exim - MSME.pdf" target="_blank" class="cert-view-btn">View
+                                Certificate</a>
                         </div>
                     </div>
-                    <div class="cert-footer">
-                        <span class="cert-name">MSME CERTIFICATE</span>
-                        <span class="cert-view-link">View <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-                    </div>
-                </a>
 
-                <a href="images/GST CERTY.pdf" class="certificate-card" target="_blank">
-                    <div class="cert-icon-wrapper">
-                        <div class="cert-icon-box">
-                            <i class="fa-regular fa-file-lines"></i>
+                    <!-- IEC -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/IEC.png" alt="IEC Logo">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">IEC</span>
+                            <a href="images/IEC.pdf" target="_blank" class="cert-view-btn">View Certificate</a>
                         </div>
                     </div>
-                    <div class="cert-footer">
-                        <span class="cert-name">GST REGISTRATION</span>
-                        <span class="cert-view-link">View <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+
+                    <!-- GST -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/GST (1).png" alt="GST Logo" class="size-adjust">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">GST</span>
+                            <a href="images/GST CERTY.pdf" target="_blank" class="cert-view-btn">View Certificate</a>
+                        </div>
                     </div>
-                </a>
+
+                    <!-- ISO 9001:2015 -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/iso-logo.png" alt="ISO 9001:2015 Logo">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">ISO 9001:2015</span>
+                        </div>
+                    </div>
+
+                    <!-- FSSAI -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/fssai-logo.png" alt="FSSAI Logo">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">FSSAI</span>
+                        </div>
+                    </div>
+
+                    <!-- APEDA -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/APEDA.png" alt="APEDA Logo" class="size-adjust">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">APEDA</span>
+                        </div>
+                    </div>
+
+                    <!-- Spices Board India -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/spices-board-logo.png" alt="Spices Board India Logo">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">Spices Board India</span>
+                        </div>
+                    </div>
+
+                    <!-- USDA -->
+                    <div class="cert-logo-card">
+                        <div class="cert-logo-box">
+                            <img src="images/usda-logo.png" alt="USDA Logo">
+                        </div>
+                        <div class="cert-logo-info">
+                            <span class="cert-name">USDA Organic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="scroll-btn next-btn" id="nextCert"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -420,37 +477,37 @@
 
     <!-- Contact Section -->
     <section class="contact-page-section">
-        <div class="contact-image-side" style="background-image: url('images/contact-us.webp');"></div>
+        <div class="contact-image-side" style="background-image: url('images/contact.webp');"></div>
         <div class="contact-form-side">
             <span class="contact-label-small">CONTACT US</span>
             <h1 class="contact-title-large">REACH OUT TO US TODAY!</h1>
 
-            <form onsubmit="sendMail(event)">
+            <form action="https://formspree.io/f/xojnbabq" method="POST">
                 <div class="contact-form-grid">
                     <div class="form-group">
                         <label>Name*</label>
-                        <input type="text" name="from_name" placeholder="Enter Your Name" class="input-name" required>
+                        <input type="text" name="name" placeholder="Enter Your Name" class="input-name" required>
                     </div>
                     <div class="form-group">
                         <label>Country Name*</label>
-                        <input type="text" name="country_name" placeholder="Enter Country Name" class="input-country"
+                        <input type="text" name="country" placeholder="Enter Country Name" class="input-country"
                             required>
                     </div>
                     <div class="form-group">
                         <label>Email Address*</label>
-                        <input type="email" name="from_email" placeholder="Enter Email Address" class="input-email"
-                            required>
+                        <input type="email" name="email" placeholder="Enter Email Address" class="input-email" required>
                     </div>
                     <div class="form-group">
                         <label>Mobile Number*</label>
-                        <input type="tel" name="mobile_number" placeholder="Enter Mobile Number" class="input-mobile"
-                            required>
+                        <input type="tel" name="phone" placeholder="Enter Mobile Number" class="input-mobile" required>
                     </div>
                     <div class="form-group full-width">
                         <label>Message</label>
                         <input type="text" name="message" placeholder="Tell us which products you are interested in..."
                             class="input-message">
                     </div>
+
+                    <input type="hidden" name="_subject" value="New Website Lead - Saferow Exim">
                 </div>
                 <button type="submit" class="submit-btn-black">Request A Quote</button>
             </form>
@@ -460,6 +517,31 @@
     <!-- Footer placeholder -->
     <div id="footer-placeholder"></div>
 
+    <script>
+        // Certificates Showcase Scroll
+        const certScroll = document.getElementById('certScroll');
+        const prevBtn = document.getElementById('prevCert');
+        const nextBtn = document.getElementById('nextCert');
+
+        if (certScroll && prevBtn && nextBtn) {
+            const scrollAmount = 310; // card width + gap
+
+            nextBtn.addEventListener('click', () => {
+                certScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                certScroll.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            // Hide/Show arrows based on scroll position
+            certScroll.addEventListener('scroll', () => {
+                const maxScroll = certScroll.scrollWidth - certScroll.clientWidth;
+                prevBtn.style.opacity = certScroll.scrollLeft <= 0 ? '0.3' : '1';
+                nextBtn.style.opacity = certScroll.scrollLeft >= maxScroll - 5 ? '0.3' : '1';
+            });
+        }
+    </script>
     <script src="main.js"></script>
 </body>
 

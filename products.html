@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="contact.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
@@ -47,47 +48,41 @@
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-img">
-                <img src="images/contact-us.webp" alt="Safe Row Logistics">
-            </div>
-            <div class="contact-form-wrapper">
-                <span class="section-label-small">CONTACT US</span>
-                <h2 class="section-title-large">REACH OUT TO US TODAY!</h2>
-                <form class="product-contact-form" onsubmit="sendMail(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Name*</label>
-                            <input type="text" name="from_name" placeholder="Enter Your Name" class="input-name"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label>Country Name*</label>
-                            <input type="text" name="country_name" placeholder="Enter Country Name"
-                                class="input-country" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email Address*</label>
-                            <input type="email" name="from_email" placeholder="Email Address" class="input-email"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label>Mobile Number*</label>
-                            <input type="text" name="mobile_number" placeholder="Phone Number" class="input-mobile"
-                                required>
-                        </div>
+    <section class="contact-page-section">
+        <div class="contact-image-side" style="background-image: url('images/contact.webp');"></div>
+        <div class="contact-form-side">
+            <span class="contact-label-small">CONTACT US</span>
+            <h1 class="contact-title-large">REACH OUT TO US TODAY!</h1>
+
+            <form action="https://formspree.io/f/xojnbabq" method="POST">
+                <div class="contact-form-grid">
+                    <div class="form-group">
+                        <label>Name*</label>
+                        <input type="text" name="name" placeholder="Enter Your Name" class="input-name" required>
                     </div>
                     <div class="form-group">
+                        <label>Country Name*</label>
+                        <input type="text" name="country" placeholder="Enter Country Name" class="input-country"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address*</label>
+                        <input type="email" name="email" placeholder="Enter Email Address" class="input-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number*</label>
+                        <input type="tel" name="phone" placeholder="Enter Mobile Number" class="input-mobile" required>
+                    </div>
+                    <div class="form-group full-width">
                         <label>Message</label>
                         <input type="text" name="message" placeholder="Tell us which products you are interested in..."
                             class="input-message">
                     </div>
-                    <button type="submit" class="submit-btn">Request A Quote</button>
-                </form>
-            </div>
+
+                    <input type="hidden" name="_subject" value="New Website Lead - Saferow Exim">
+                </div>
+                <button type="submit" class="submit-btn-black">Request A Quote</button>
+            </form>
         </div>
     </section>
 
@@ -119,21 +114,33 @@
         });
 
         function filterSelection(category) {
+            // Save state
+            sessionStorage.setItem('lastProductCategory', category);
+
+            // Clear search when a category is explicitly clicked
+            const searchInput = document.getElementById("productSearch");
+            if (searchInput && searchInput.value !== "") {
+                searchInput.value = "";
+                sessionStorage.removeItem('lastProductSearch');
+            }
+
             const btns = document.getElementsByClassName("filter-btn");
 
             // Determine active button logic
-            for (let btn of btns) {
-                btn.classList.remove("active");
+            if (btns && btns.length > 0) {
+                for (let btn of btns) {
+                    btn.classList.remove("active");
 
-                const btnText = btn.textContent.toUpperCase();
+                    const btnText = btn.textContent.toUpperCase();
 
-                // Normal matching
-                if (btnText.includes(category.toUpperCase()) || (category === 'all' && btnText.includes('ALL'))) {
-                    btn.classList.add("active");
-                }
-                // Special case: If category is sub-agro, make Agro button active
-                else if ((category === 'pulses' || category === 'spices') && btnText.includes('AGRO')) {
-                    btn.classList.add("active");
+                    // Normal matching
+                    if (btnText.includes(category.toUpperCase()) || (category === 'all' && btnText.includes('ALL'))) {
+                        btn.classList.add("active");
+                    }
+                    // Special case: If category is sub-agro, make Agro button active
+                    else if ((category === 'pulses' || category === 'spices') && btnText.includes('AGRO')) {
+                        btn.classList.add("active");
+                    }
                 }
             }
 
@@ -174,9 +181,32 @@
             const input = document.getElementById("productSearch");
             const filter = input.value.toUpperCase();
 
+            // Store search term
+            sessionStorage.setItem('lastProductSearch', input.value);
+
+            // If search is cleared, restore the last active category view
+            if (filter.trim() === "") {
+                const params = new URLSearchParams(window.location.search);
+                const savedCategory = sessionStorage.getItem('lastProductCategory');
+                const lastCategory = params.get('category') || savedCategory || 'all';
+                filterSelection(lastCategory);
+                return;
+            }
+
+            // Perform global search across ALL products, ignoring category filters
             const filtered = allProducts.filter(p =>
-                (p.title || '').toUpperCase().includes(filter)
+                (p.title || '').toUpperCase().includes(filter) ||
+                (p.category || '').toUpperCase().includes(filter)
             );
+
+            // Remove active state from category buttons to indicate global view
+            const btns = document.getElementsByClassName("filter-btn");
+            if (btns && btns.length > 0) {
+                for (let btn of btns) {
+                    btn.classList.remove("active");
+                }
+            }
+
             renderProductGrid(filtered);
         }
     </script>

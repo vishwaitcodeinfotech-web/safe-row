@@ -232,7 +232,7 @@ function loadFooter() {
             </div>
 
             <div class="footer-bottom-line">
-                <p>&copy; 2025 Safe Row Exim. All Rights Reserved.</p>
+                <p>&copy; 2026 Safe Row Exim. All Rights Reserved.</p>
                 <div class="footer-legal">
                     <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
                     <a href="terms-conditions.html" target="_blank">Terms & Conditions</a>
@@ -251,19 +251,39 @@ function loadFooter() {
 // Counter Animation Logic
 function initCounterAnimation() {
     const stats = document.querySelectorAll('.stat-number');
-    const speed = 700; // Higher is slower
 
     const animate = (el) => {
         const target = +el.getAttribute('data-target');
-        const count = +el.innerText;
-        const inc = target / speed;
 
-        if (count < target) {
-            el.innerText = Math.ceil(count + inc);
-            setTimeout(() => animate(el), 1);
-        } else {
-            el.innerText = target + "+";
-        }
+        // Give small numbers (10, 26) a slightly faster duration (e.g. 2000ms)
+        // Give large numbers (280, 1000) a longer duration (e.g. 3000ms)
+        const duration = target < 50 ? 2000 : 3000;
+
+        let startTime = null;
+
+        const updateCounter = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+
+            // Calculate smoother stop (Quadratic ease out) instead of aggressive Quartic
+            const easeOutQuad = 1 - Math.pow(1 - progress, 2);
+
+            // If the target is a small number (e.g., 10 or 26), 
+            // use linear progress so it doesn't freeze prematurely.
+            // If it's a large target (e.g. 1000), use the smooth deceleration.
+            const currentCount = target < 50
+                ? Math.floor(target * progress)
+                : Math.floor(target * easeOutQuad);
+
+            if (progress < 1) {
+                el.innerText = currentCount + "+";
+                requestAnimationFrame(updateCounter);
+            } else {
+                el.innerText = target + "+";
+            }
+        };
+
+        requestAnimationFrame(updateCounter);
     };
 
     const observerOptions = {
@@ -369,4 +389,10 @@ async function processEmailSending() {
     }
 }
 
-
+// Automatically clear the contact form when returning to the page (e.g., via the Back button)
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        // If loaded from back/forward cache, reset all forms on the page
+        document.querySelectorAll('form').forEach(form => form.reset());
+    }
+});
