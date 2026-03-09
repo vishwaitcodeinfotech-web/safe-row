@@ -94,9 +94,8 @@ window.addEventListener('resize', () => {
 // --- UPDATED LOAD HEADER FUNCTION ---
 function loadHeader() {
     const headerHTML = `
-    <!-- Header Container -->
     <header class="main-header">
-        <!-- Top Bar -->
+        <!-- Tier 2: Tagline & Contact (Red) -->
         <div class="top-bar">
             <div class="container">
                 <div class="tagline">Where Trust Begins</div>
@@ -107,7 +106,7 @@ function loadHeader() {
             </div>
         </div>
 
-        <!-- Main Nav Bar Wrapper -->
+        <!-- Tier 3: Main Navigation (White) -->
         <div class="header-nav-wrapper">
             <div class="container header-inner">
                 <a href="index.html">
@@ -119,7 +118,7 @@ function loadHeader() {
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li class="dropdown-parent">
-                            <a href="products.html">Products <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px; transition: transform 0.3s ease;"></i></a>
+                            <a href="products.html">Products <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
                             <ul class="header-dropdown-menu">
                                 <li><a href="products.html?category=health">Healthcare Solutions</a></li>
                                 <li><a href="products.html?category=pulses">Agro-Commodities (Pulses)</a></li>
@@ -193,7 +192,7 @@ function loadFooter() {
             <div class="footer-content">
                 <div class="footer-brand-col">
                     <div class="footer-logo">
-                        <img src="images/Gemini_Generated_Image_bnhy18bnhy18bnhy.webp" alt="Safe Row Logo" style="height: 50px;">
+                        <img src="images/gemini-generated-image-bnhy18bnhy18bnhy.webp" alt="Safe Row Logo" style="height: 50px;">
                     </div>
                     <p>Safe Row Exim: Bridging global markets with premium agro-commodities and certified healthcare solutions.</p>
                     <div class="social-links-square">
@@ -255,27 +254,21 @@ function initCounterAnimation() {
     const animate = (el) => {
         const target = +el.getAttribute('data-target');
 
-        // Give small numbers (10, 26) a slightly faster duration (e.g. 2000ms)
-        // Give large numbers (280, 1000) a longer duration (e.g. 3000ms)
-        const duration = target < 50 ? 2000 : 3000;
+        // Use a fixed duration for ALL counters so they finish at the same time
+        const duration = 2500;
 
         let startTime = null;
 
         const updateCounter = (currentTime) => {
             if (!startTime) startTime = currentTime;
-            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const progress = currentTime - startTime;
+            const completion = Math.min(progress / duration, 1);
 
-            // Calculate smoother stop (Quadratic ease out) instead of aggressive Quartic
-            const easeOutQuad = 1 - Math.pow(1 - progress, 2);
+            // Smoother deceleration (ease-out-quad) for natural movement
+            const easeOutQuad = 1 - (1 - completion) * (1 - completion);
+            const currentCount = Math.floor(target * easeOutQuad);
 
-            // If the target is a small number (e.g., 10 or 26), 
-            // use linear progress so it doesn't freeze prematurely.
-            // If it's a large target (e.g. 1000), use the smooth deceleration.
-            const currentCount = target < 50
-                ? Math.floor(target * progress)
-                : Math.floor(target * easeOutQuad);
-
-            if (progress < 1) {
+            if (completion < 1) {
                 el.innerText = currentCount + "+";
                 requestAnimationFrame(updateCounter);
             } else {

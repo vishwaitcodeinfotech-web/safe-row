@@ -507,7 +507,7 @@
     }
 
     .team .section-title-large {
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -790,7 +790,7 @@
     font-weight: 600;
     color: #EE1113;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     letter-spacing: 2px;
     margin-bottom: 15px;
     display: block;
@@ -801,7 +801,7 @@
     font-weight: 600;
     line-height: 1.2;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     margin-bottom: 30px;
     color: #111;
 }
@@ -1719,9 +1719,9 @@
         }
 
         .why-main-heading {
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 25px;
-            text-align: center;
+            text-align: left;
             /* Left align for index page match */
             line-height: 1.2;
         }
@@ -1730,7 +1730,7 @@
         .why-right {
             width: 100%;
             height: auto;
-            text-align: center;
+            text-align: left;
             /* Restoring left align for better spacing */
             font-size: 16px;
             /* Resetting the weird 40px desktop font size */
@@ -1740,10 +1740,15 @@
         .section-label-small {
             font-size: 14px;
             display: block;
-            text-align: center;
+            text-align: left;
             /* Left align for index page match */
             margin-bottom: 20px;
             letter-spacing: 1px;
+        }
+
+        .section-title-large {
+            font-size: 36px;
+            text-align: left;
         }
 
         .form-group label {

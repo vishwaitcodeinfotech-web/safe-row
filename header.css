@@ -9,12 +9,12 @@
     z-index: 1000;
 }
 
-/* Top Bar */
+/* Tier 2: Top Bar (Red - Social & Contact) */
 .top-bar {
     background-color: #EE1113;
     color: #FFFFFF;
-    height: 40px;
-    font-size: 16px;
+    height: 45px;
+    font-size: 14px;
     font-weight: 500;
     width: 100%;
     display: flex;
@@ -31,6 +31,13 @@
     align-items: center;
 }
 
+.top-bar .tagline {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 .contact-header {
     display: flex;
     gap: 25px;
@@ -42,7 +49,7 @@
     gap: 8px;
 }
 
-/* Nav Bar Wrapper (Full Width White background) */
+/* Tier 3: Navigation Bar (White) */
 .header-nav-wrapper {
     background-color: #ffffff;
     width: 100%;
@@ -50,13 +57,12 @@
     transition: all 0.3s ease;
 }
 
-/* Nav Bar Inner (Centered Container) */
 .header-inner {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 4%;
-    height: 85px;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,8 +71,8 @@
 
 /* Offset body for fixed components */
 body {
-    padding-top: 125px;
-    /* 40px + 85px */
+    padding-top: 135px;
+    /* 45 (top) + 90 (nav) */
 }
 
 .main-header.scrolled .header-nav-wrapper {
@@ -78,8 +84,11 @@ body {
 }
 
 .header-logo {
-    height: 45px;
+    height: 55px;
+    /* Professional size */
     width: auto;
+    display: block;
+    transition: all 0.3s ease;
 }
 
 /* Desktop Navigation */
@@ -104,7 +113,7 @@ body {
 }
 
 #mainNav ul li a.active {
-    color: #000000;
+    color: #EE1113;
 }
 
 #mainNav ul li a.active::after {
@@ -120,16 +129,20 @@ body {
 #mainNav ul li a.nav-cta {
     background-color: #EE1113;
     color: white !important;
-    padding: 10px 25px;
+    padding: 12px 28px;
     font-weight: 700;
     white-space: nowrap;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(238, 17, 19, 0.2);
     display: inline-block;
+    border-radius: 2px;
 }
 
 #mainNav ul li a.nav-cta::after {
     display: none;
+}
+
+#mainNav ul li a:hover {
+    color: #EE1113;
 }
 
 /* Mobile Menu Button */
@@ -274,7 +287,7 @@ body {
     }
 
     .header-logo {
-        height: 38px !important;
+        height: 40px !important;
     }
 
     .mobile-menu-btn {

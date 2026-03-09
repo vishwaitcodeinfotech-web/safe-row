@@ -13,22 +13,25 @@ const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQLYvusFtlGswKH
 const FALLBACK_PRODUCTS = typeof HEALTHCARE_PRODUCTS !== 'undefined' ? HEALTHCARE_PRODUCTS : [];
 
 async function fetchProducts() {
+    // Prevent CORS errors when opened directly from the hard drive (file:// protocol)
+    if (window.location.protocol === 'file:') {
+        return FALLBACK_PRODUCTS;
+    }
+
     try {
         const response = await fetch('products.json');
         if (!response.ok) {
-            console.warn("products.json not found. Using fallback data.");
             return FALLBACK_PRODUCTS;
         }
         const products = await response.json();
 
         if (!products || products.length === 0) {
-            console.warn('products.json returned 0 products. Using fallback data.');
             return FALLBACK_PRODUCTS;
         }
         return products;
 
     } catch (error) {
-        console.error('Error loading products from products.json:', error);
+        // Safely fallback without throwing a red console error
         return FALLBACK_PRODUCTS;
     }
 }
