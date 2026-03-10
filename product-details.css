@@ -306,16 +306,21 @@ section {
     padding: 12px 0;
     border-bottom: 1px solid #f2f2f2;
     font-size: 14px;
+    gap: 15px;
 }
 
 .data-label {
     color: #666;
     font-weight: 500;
+    flex-shrink: 0;
 }
 
 .data-value {
     color: #111;
     font-weight: 700;
+    text-align: right;
+    flex: 1;
+    word-break: break-word;
 }
 
 /* Shipping List */
@@ -325,12 +330,14 @@ section {
     align-items: center;
     padding: 15px 0;
     border-bottom: 1px solid #f2f2f2;
+    gap: 15px;
 }
 
 .ship-left {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-shrink: 0;
 }
 
 .ship-item i {
@@ -343,6 +350,7 @@ section {
     justify-content: center;
     color: #EE1113;
     font-size: 14px;
+    flex-shrink: 0;
 }
 
 .ship-item .label {
@@ -355,6 +363,9 @@ section {
     font-size: 14px;
     color: #111;
     font-weight: 700;
+    text-align: right;
+    flex: 1;
+    word-break: break-word;
 }
 
 /* Compliance Tags */

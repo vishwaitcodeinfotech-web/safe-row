@@ -101,7 +101,7 @@
     letter-spacing: 2px;
     cursor: pointer;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     /* Gap from bottom to prevent joining footer */
     transition: all 0.3s ease;
@@ -123,7 +123,7 @@
 
     .contact-form-grid {
         gap: 30px 25px !important;
-        margin-bottom: 40px !important;
+        margin-bottom: 0px !important;
     }
 
     .submit-btn-black {

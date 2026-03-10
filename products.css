@@ -571,6 +571,17 @@ html.modal-open {
     justify-content: space-between;
     padding-bottom: 8px;
     border-bottom: 1px solid #f5f5f5;
+    gap: 15px;
+}
+
+.p-row span {
+    flex-shrink: 0;
+}
+
+.p-row strong {
+    text-align: right;
+    flex: 1;
+    word-break: break-word;
 }
 
 .ship-list {
@@ -586,6 +597,7 @@ html.modal-open {
     padding: 15px;
     background: #f9f9f9;
     border-radius: 10px;
+    gap: 15px;
 }
 
 .s-left {
@@ -594,6 +606,7 @@ html.modal-open {
     gap: 10px;
     color: #666;
     font-size: 14px;
+    flex-shrink: 0;
 }
 
 .s-left i {
@@ -603,6 +616,9 @@ html.modal-open {
 .s-value {
     font-weight: 700;
     color: #111;
+    text-align: right;
+    flex: 1;
+    word-break: break-word;
 }
 
 /* Compliance Tags */
