@@ -1,0 +1,22 @@
+﻿On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   about.css
+	modified:   agro-products.js
+	modified:   healthcare_product-data.js
+	deleted:    images/GUAR SEEDS.webp
+	deleted:    "images/Peas \342\200\223 vatana.webp"
+	deleted:    images/rice.jpg
+	modified:   rename_mapping.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_out.txt
+	git_out2.txt
+	images/guar-seeds.webp
+	images/peas-vatana.webp
+
+no changes added to commit (use "git add" and/or "git commit -a")

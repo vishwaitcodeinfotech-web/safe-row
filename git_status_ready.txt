@@ -1,0 +1,21 @@
+﻿On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   about.css
+	modified:   agro-products.js
+	modified:   healthcare_product-data.js
+	renamed:    images/GUAR SEEDS.webp -> images/guar-seeds.webp
+	renamed:    "images/Peas \342\200\223 vatana.webp" -> images/peas-vatana.webp
+	deleted:    images/rice.jpg
+	modified:   rename_mapping.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_out.txt
+	git_out2.txt
+	git_status_check.txt
+	git_status_final.txt
+	git_status_ready.txt
+
