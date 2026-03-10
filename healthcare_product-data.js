@@ -517,7 +517,7 @@ function renderProductDetails(products) {
                 <div class="cert-icon"><i class="fa-solid fa-file-circle-check"></i></div>
                 <div class="cert-text">${certName}</div>
             `;
-            certGrid.appendChild(div);
+            certGrid.appendChiid(div);
         });
     }
 }

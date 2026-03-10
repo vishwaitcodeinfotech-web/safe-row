@@ -790,7 +790,7 @@
     font-weight: 600;
     color: #EE1113;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     letter-spacing: 2px;
     margin-bottom: 15px;
     display: block;
@@ -801,7 +801,7 @@
     font-weight: 600;
     line-height: 1.2;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
     color: #111;
 }
@@ -1177,7 +1177,6 @@
 /* Icons styling - Line art style */
 .stat-icon {
     font-size: 33px;
-    /* Larger as per Image 1 */
     color: #333;
     margin-bottom: -8px;
     font-weight: 300;
@@ -1249,9 +1248,7 @@
     }
 }
 
-/* =========================
-   RESPONSIVE: WHERE WE SERVE
-========================= */
+/* RESPONSIVE: WHERE WE SERVE */
 
 /* Tablets and small desktops */
 @media (max-width: 992px) {
