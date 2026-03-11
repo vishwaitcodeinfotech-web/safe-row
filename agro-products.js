@@ -107,7 +107,7 @@ const AGRO_PRODUCTS = [
         "category": "Agro / Pulses",
         "title": "Guar Seeds",
         "description": "Premium export quality Guar Seeds, cleaned, graded and packed to meet international standards.",
-        "image": "images/guar-seeds.webp",
+        "image": "images/guar-seed.webp",
         "Purity": "99%",
         "Moisture": "<12%",
         "Packaging": "25kg / 50kg PP or Jute (custom available)",
