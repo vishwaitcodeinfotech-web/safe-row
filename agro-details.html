@@ -36,7 +36,7 @@
                 <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
             </div>
             <div class="sidebar-content">
-                <img src="images/placeholder.jpg" alt="Product Image" class="product-hero-img" id="productImage">
+                <img src="images/peas-vatana.webp" alt="Product Image" class="product-hero-img" id="productImage">
 
                 <div class="sidebar-info">
                     <span class="agro-category-label" id="productCategory">PRODUCT: Agro / Spices</span>
@@ -290,6 +290,12 @@
                 }
 
                 document.title = product.title + " | Safe Row Exim";
+
+                // Update quote link to pass product name to contact page
+                const quoteLink = document.querySelector('.modal-cta');
+                if (quoteLink) {
+                    quoteLink.href = 'contact.html?product=' + encodeURIComponent(product.title || '');
+                }
             }
         });
     </script>

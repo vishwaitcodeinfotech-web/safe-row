@@ -148,6 +148,18 @@ window.openProductModal = function (index) {
     modalCategory.textContent = product.category || 'General';
     modalDescription.textContent = product.description || 'No description available.';
 
+    // Set hidden product name field for inquiry tracking
+    const productInputs = document.querySelectorAll('input[name="product_name"]');
+    productInputs.forEach(input => {
+        input.value = product.title || '';
+    });
+
+    // Update "Request A Quote" link to pass product name to contact page
+    const quoteLink = document.getElementById('modalQuoteLink');
+    if (quoteLink) {
+        quoteLink.href = 'contact.html?product=' + encodeURIComponent(product.title || '');
+    }
+
     const isAgro = product.category && product.category.toLowerCase().includes('agro');
     const isSpice = product.category && product.category.toLowerCase().includes('spice');
 
@@ -348,6 +360,12 @@ function renderProductDetails(products) {
         imgEl.onerror = function () { this.src = 'https://placehold.co/600x400?text=Image+Not+Found'; };
     }
     document.title = (product.title || 'Product') + " | Safe Row Exim";
+
+    // Update quote link
+    const quoteLink = document.querySelector('.modal-cta');
+    if (quoteLink) {
+        quoteLink.href = 'contact.html?product=' + encodeURIComponent(product.title || '');
+    }
 
 
     // --- 2. Quick Specs (Grid) ---

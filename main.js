@@ -303,6 +303,22 @@ window.addEventListener('DOMContentLoaded', () => {
     loadHeader();
     loadFooter();
     initCounterAnimation();
+
+    // Check for 'product' query parameter and populate hidden field if it exists
+    const urlParams = new URLSearchParams(window.location.search);
+    const productParam = urlParams.get('product');
+    if (productParam) {
+        const productInputs = document.querySelectorAll('input[name="product_name"]');
+        productInputs.forEach(input => {
+            input.value = productParam;
+        });
+
+        // Also update message placeholder if it's the contact form Page
+        const messageInput = document.querySelector('.input-message');
+        if (messageInput && !messageInput.value) {
+            messageInput.placeholder = "Inquiry regarding: " + productParam;
+        }
+    }
 });
 
 // Add scroll effect to header
