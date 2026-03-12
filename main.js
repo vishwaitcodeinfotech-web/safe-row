@@ -308,7 +308,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const productParam = urlParams.get('product');
     if (productParam) {
-        const productInputs = document.querySelectorAll('input[name="product_name"]');
+        const productInputs = document.querySelectorAll('input[name="Product"]');
         productInputs.forEach(input => {
             input.value = productParam;
         });

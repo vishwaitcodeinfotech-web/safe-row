@@ -149,7 +149,7 @@ window.openProductModal = function (index) {
     modalDescription.textContent = product.description || 'No description available.';
 
     // Set hidden product name field for inquiry tracking
-    const productInputs = document.querySelectorAll('input[name="product_name"]');
+    const productInputs = document.querySelectorAll('input[name="Product"]');
     productInputs.forEach(input => {
         input.value = product.title || '';
     });
